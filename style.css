@@ -1,0 +1,270 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #232526 0%, #00c3ff 100%);
+    color: #f5f6fa;
+    font-family: 'Cairo', 'Montserrat', Arial, sans-serif;
+    letter-spacing: 0.01em;
+    overflow-x: hidden;
+}
+.cv-container {
+    max-width: 800px;
+    margin: 48px auto 32px auto;
+    background: rgba(34, 40, 49, 0.98);
+    border-radius: 32px;
+    box-shadow: 0 12px 48px #00c3ff55, 0 2px 0 #ffb300;
+    padding: 48px 40px 40px 40px;
+    border: 2px solid #00c3ff99;
+    position: relative;
+    animation: fadeInUp 1.2s cubic-bezier(.77,0,.18,1) both;
+}
+    /* لا تغلق القوس هنا لأن هناك ::before و ::after */
+
+.lamp {
+    position: absolute;
+    top: -38px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 38px;
+    height: 38px;
+    background: radial-gradient(circle at 60% 40%, #ffffff 0%, #e0e0e0 60%, #bdbdbd 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 32px 12px #fff, 0 0 8px 2px #fff;
+    z-index: 10;
+    border: 2px solid #fff;
+    transition: box-shadow 0.4s, filter 0.4s;
+}
+
+@keyframes lampGlow {
+    0% {
+        box-shadow: 0 0 16px 4px #fff, 0 0 4px 1px #fff;
+        filter: brightness(1);
+    }
+    100% {
+        box-shadow: 0 0 32px 16px #fff, 0 0 12px 4px #fff;
+        filter: brightness(1.25);
+    }
+}
+
+.cv-container::before {
+    content: '';
+    position: absolute;
+    top: -30px; left: -30px;
+    width: 120px; height: 120px;
+    background: radial-gradient(circle, #ffb300 0%, #00c3ff 100%);
+    border-radius: 50%;
+    opacity: 0.18;
+    z-index: 0;
+    animation: floatBubble 6s infinite alternate;
+}
+.cv-container::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, #00c3ff 0%, #ffb300 100%);
+    border-radius: 50%;
+    opacity: 0.13;
+    z-index: 0;
+    animation: floatBubble 7s infinite alternate-reverse;
+}
+@keyframes floatBubble {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-30px) scale(1.08); }
+}
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.cv-header {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    border-bottom: 3px solid #00c3ff44;
+    padding-bottom: 28px;
+    margin-bottom: 36px;
+    position: relative;
+    z-index: 1;
+}
+.cv-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 5px solid #ffb300;
+    object-fit: cover;
+    box-shadow: 0 4px 24px #00c3ff99;
+    animation: photoPulse 2.5s infinite alternate;
+}
+@keyframes photoPulse {
+    0% {
+        box-shadow: 0 4px 24px #00c3ff99;
+        border-color: #ffb300;
+    }
+    100% {
+        box-shadow: 0 12px 48px #ffb30099;
+        border-color: #00c3ff;
+    }
+}
+.cv-header h1 {
+    margin: 0 0 12px 0;
+    font-size: 2.8em;
+    font-family: 'Montserrat', 'Cairo', Arial, sans-serif;
+    color: #00c3ff;
+    letter-spacing: 0.04em;
+    animation: textGlow 2s infinite alternate;
+}
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 0 #00c3ff;
+    }
+    100% {
+        text-shadow: 0 0 16px #00c3ff99;
+    }
+}
+.cv-header h3 {
+    margin: 0 0 12px 0;
+    font-weight: 400;
+    color: #ffb300;
+    font-family: 'Cairo', Arial, sans-serif;
+    font-size: 1.3em;
+    letter-spacing: 0.02em;
+}
+.cv-header p {
+    margin: 0 0 6px 0;
+    font-size: 1.12em;
+    color: #e0e0e0;
+}
+.cv-header span {
+    color: #ffb300;
+    font-size: 1.15em;
+}
+.cv-section {
+    margin-bottom: 36px;
+    position: relative;
+    z-index: 1;
+}
+.cv-section h2 {
+    color: #00c3ff;
+    margin-bottom: 16px;
+    font-size: 1.5em;
+    font-family: 'Montserrat', 'Cairo', Arial, sans-serif;
+    letter-spacing: 0.03em;
+    animation: fadeInUp 1.2s cubic-bezier(.77,0,.18,1) both;
+}
+.cv-section p {
+    color: #f5f6fa;
+    font-size: 1.12em;
+}
+.cv-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    justify-content: flex-start;
+}
+.cv-skills li {
+    background: linear-gradient(90deg, #00c3ff 0%, #ffb300 100%);
+    color: #232526;
+    padding: 10px 28px;
+    border-radius: 22px;
+    font-weight: bold;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1.13em;
+    box-shadow: 0 2px 12px #00c3ff33;
+    transition: transform 0.4s, box-shadow 0.4s;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+.cv-skills li:hover {
+    transform: scale(1.15) rotate(-4deg);
+    box-shadow: 0 8px 32px #ffb30099;
+}
+.cv-job {
+    background: #232323cc;
+    border-radius: 16px;
+    padding: 18px 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 16px #00c3ff22;
+    border-right: 6px solid #00c3ff;
+    animation: fadeInUp 1.2s cubic-bezier(.77,0,.18,1) both;
+}
+.cv-job h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.18em;
+    color: #ffb300;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+.cv-job span {
+    color: #00c3ff;
+    font-size: 1.08em;
+}
+/* جرافيك بار مميز أعلى السيرة الذاتية */
+.cv-graphic {
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(90deg, #00c3ff 0%, #ffb300 100%);
+    border-radius: 18px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 16px #00c3ff33;
+    position: relative;
+    overflow: hidden;
+    animation: graphicBar 2.5s infinite alternate;
+}
+.cv-graphic-text {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    text-align: center;
+    z-index: 2;
+    pointer-events: none;
+}
+.cv-graphic-animate {
+    display: inline-block;
+    font-size: 1.25em;
+    font-family: 'Cairo', 'Montserrat', Arial, sans-serif;
+    color: #232526;
+    background: rgba(255,255,255,0.18);
+    border-radius: 12px;
+    padding: 8px 24px;
+    box-shadow: 0 2px 12px #00c3ff33;
+    animation: textSlide 2.2s cubic-bezier(.77,0,.18,1) both;
+}
+@keyframes textSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+@keyframes graphicBar {
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.2) drop-shadow(0 0 16px #ffb300); }
+}
+@media (max-width: 700px) {
+    .cv-container {
+        padding: 16px 2vw;
+    }
+    .cv-header {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+    }
+    .cv-photo {
+        width: 90px;
+        height: 90px;
+    }
+}
