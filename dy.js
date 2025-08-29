@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 });
 document.addEventListener('DOMContentLoaded', function() {
-	// Animation for skills
+	
 	const skills = document.querySelectorAll('.cv-skills li');
 	skills.forEach((skill, i) => {
 		skill.style.opacity = '0';
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	});
 
-	// Animate section titles
+
 	const sections = document.querySelectorAll('.cv-section h2');
 	sections.forEach((section, i) => {
 		section.style.opacity = '0';
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		}, 500 + i * 250);
 	});
 
-	// Header photo hover effect
+	
 	const photo = document.querySelector('.cv-photo');
 	if (photo) {
 		photo.addEventListener('mouseenter', () => {
